@@ -7312,9 +7312,6 @@ function library:CreateWindow(options, ...)
 			Name = "Background",
 			Side = "right"
 		})
-		local detailssection = designer:CreateSection({
-			Name = "More Info"
-		})
 		local filessection = designer:CreateSection({
 			Name = "Profiles",
 			Side = "right"
@@ -7469,20 +7466,6 @@ function library:CreateWindow(options, ...)
 					end
 				}
 				common_table = nil
-			end
-		end
-		if options.Info then
-			local typ = type(options.Info)
-			if typ == "string" then
-				daaata[1 + #daaata] = {"AddLabel", "__Designer.Label.Creator", detailssection, {
-					Text = options.Info
-				}}
-			elseif typ == "table" and #options.Info > 0 then
-				for _, v in next, options.Info do
-					daaata[1 + #daaata] = {"AddLabel", "__Designer.Label.Creator", detailssection, {
-						Text = tostring(v)
-					}}
-				end
 			end
 		end
 		for _, v in next, daaata do
